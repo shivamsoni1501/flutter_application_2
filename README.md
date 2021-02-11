@@ -1,6 +1,6 @@
-# flutter_application_2
+# flutter_Continents_Demo
 
-A new Flutter project.
+A simple and beautifull app which demostrate the information of Continents and countries.
 
 - Here are some images of the application- 
 
