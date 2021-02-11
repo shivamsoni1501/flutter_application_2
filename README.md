@@ -2,6 +2,20 @@
 
 A new Flutter project.
 
+- Here are some images of the application- 
+
+<p align="center">
+  <img src="./images/1.jpg" alt="Continents List Screen" width="200" >
+</p>
+
+<p align="center">
+  <img src="./images/2.jpg" alt="Countries List Screen" width="200" >
+</p>
+
+<p align="center">
+  <img src="./images/3.jpg" alt="Expended Country Tile Screen" width="200" >
+</p>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
