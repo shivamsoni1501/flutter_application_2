@@ -21,7 +21,8 @@ class Continent extends StatelessWidget {
             if (result.hasException) {
               return Text(result.exception.toString());
             } else if (result.loading) {
-              return CircularProgressIndicator();
+              return CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(ColorP[2]));
             } else {
               List<dynamic> temp = result.data['continent']['countries'];
               return ListView.builder(
@@ -115,13 +116,13 @@ class _CountryTileState extends State<CountryTile> {
                                     color: ColorP[4],
                                     blurRadius: 2,
                                     offset: Offset(3, -2))
-                              ], fontSize: 20, color: ColorP[1]),
+                              ], fontSize: 25, color: ColorP[1]),
                             ),
                             Text(
                               widget.data['native'],
                               style: TextStyle(
                                   color: ColorP[4],
-                                  fontSize: 12,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold),
                             ),
                           ],
@@ -130,61 +131,61 @@ class _CountryTileState extends State<CountryTile> {
                     ],
                   ),
                 ),
-                if (_toggleS)
-                  Flexible(
-                    child: ListView(
-                      physics: ClampingScrollPhysics(),
-                      children: [
-                        Divider(
-                          height: 10,
-                          thickness: 1,
-                        ),
+                // if (_toggleS)
+                Flexible(
+                  child: ListView(
+                    physics: ClampingScrollPhysics(),
+                    children: [
+                      Divider(
+                        height: 10,
+                        thickness: 1,
+                      ),
+                      Text(
+                        "Capital",
+                        style: TextStyle(color: ColorP[4], fontSize: 10),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        widget.data["capital"] ?? "N.A.",
+                        style: TextStyle(color: ColorP[1], fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
+                      if (widget.data["languages"].length > 0)
                         Text(
-                          "Capital",
+                          "Language",
                           style: TextStyle(color: ColorP[4], fontSize: 10),
                           textAlign: TextAlign.center,
                         ),
+                      if (widget.data["languages"].length > 0)
                         Text(
-                          widget.data["capital"] ?? "N.A.",
+                          '${widget.data["languages"][0]["name"] ?? "N.A."}(${widget.data["languages"][0]["native"] ?? "N.A."})',
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: ColorP[1], fontSize: 20),
                           textAlign: TextAlign.center,
                         ),
-                        if (widget.data["languages"].length > 0)
-                          Text(
-                            "Language",
-                            style: TextStyle(color: ColorP[4], fontSize: 10),
-                            textAlign: TextAlign.center,
-                          ),
-                        if (widget.data["languages"].length > 0)
-                          Text(
-                            '${widget.data["languages"][0]["name"] ?? "N.A."}(${widget.data["languages"][0]["native"] ?? "N.A."})',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: ColorP[1], fontSize: 20),
-                            textAlign: TextAlign.center,
-                          ),
-                        Text(
-                          "Currency",
-                          style: TextStyle(color: ColorP[4], fontSize: 10),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          widget.data["currency"] ?? "N.A.",
-                          style: TextStyle(color: ColorP[1], fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          "Dial Code",
-                          style: TextStyle(color: ColorP[4], fontSize: 10),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          '+${widget.data["phone"] ?? "N.A."}',
-                          style: TextStyle(color: ColorP[1], fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                      Text(
+                        "Currency",
+                        style: TextStyle(color: ColorP[4], fontSize: 10),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        widget.data["currency"] ?? "N.A.",
+                        style: TextStyle(color: ColorP[1], fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        "Dial Code",
+                        style: TextStyle(color: ColorP[4], fontSize: 10),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        '+${widget.data["phone"] ?? "N.A."}',
+                        style: TextStyle(color: ColorP[1], fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
+                ),
                 Icon(
                   (_toggleS)
                       ? Icons.keyboard_arrow_up

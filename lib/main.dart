@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GraphQLProvider(
+      //to set up client to graphql
       client: client,
       child: MaterialApp(
         title: 'Flutter Continents Demo',

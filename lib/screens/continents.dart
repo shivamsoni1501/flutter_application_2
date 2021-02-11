@@ -14,14 +14,16 @@ class Continents extends StatelessWidget {
       backgroundColor: ColorP[4],
       body: Center(
         child: Query(
-          //to interact with graphql
+          //to interact with graphql database
           options: QueryOptions(documentNode: gql(getContinentsQuery)),
           builder: (QueryResult result,
               {VoidCallback refetch, FetchMore fetchMore}) {
             if (result.hasException) {
               return Text(result.exception.toString());
             } else if (result.loading) {
-              return CircularProgressIndicator();
+              return CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(ColorP[2]),
+              );
             } else {
               return ListView.builder(
                 physics: AlwaysScrollableScrollPhysics(
